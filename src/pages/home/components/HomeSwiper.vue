@@ -16,20 +16,23 @@ export default {
     return {
       swiperOptions: {
         pagination: '.swiper-pagination',
-        loop: true
+        loop: true,
+        autoplay: 3000,
+        speed: 1200,
+        autoplayDisableOnInteraction: false
       },
       swiperList: [
         {
           id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1907/cd/cdd8448b61cd6042a3.img.jpg_350x240_9bd65569.jpg'
+          imgUrl: 'http://img.zcool.cn/community/0195405543db6f0000019ae90f8547.jpg@1280w_1l_2o_100sh.jpg'
         },
         {
           id: '0002',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1907/ca/ca68bd95bc36bdba3.img.jpg_350x240_0d9e7931.jpg'
+          imgUrl: 'http://hbimg.huabanimg.com/59fb7fa84b40d893f3159ed4dadad27a17193b2410f89f-R1ENm6_fw658'
         },
         {
           id: '0003',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_350x240_8e61302a.jpg'
+          imgUrl: 'http://img.zcool.cn/community/01b6b25543db6f0000019ae945d6f4.jpg'
         }
       ]
     }
@@ -44,7 +47,7 @@ export default {
     overflow hidden
     width 100%
     height 0
-    height 31.25%
+    padding-bottom  31.25%
     background-color #eee
     .swiper-img
       width 100%
