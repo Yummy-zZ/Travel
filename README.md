@@ -1,6 +1,7 @@
 # travel
 
 > A Vue.js project
+> 使用vue2和cli2.9x进行的开发，后续还有vue3和cli4的项目升级
 
 ## Build Setup
 
