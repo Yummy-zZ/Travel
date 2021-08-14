@@ -1,17 +1,17 @@
 <template>
-  <div id="home">
-    <h1>
-      Hello World~
-    </h1>
+  <div class="home">
+    <Header></Header>
   </div>
 </template>
 
 <script>
+import Header from './components/Header'
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {Header}
 }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 
 </style>
