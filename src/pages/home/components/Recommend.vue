@@ -17,41 +17,8 @@
 <script>
 export default {
   name: 'Recommend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '01',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg',
-          title: '故宫',
-          desc: '世界五大宫之首，穿越与您近在咫尺'
-        },
-        {
-          id: '02',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1507/cc/19733fc0135062788140cbb48ae606a7.water.jpg_200x200_d9ebe2fd.jpg',
-          title: '北京野生动物园',
-          desc: '敢与森林之王近距离接触吗？'
-        },
-        {
-          id: '03',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1602/22/22b6ddfc418d0c3b90.water.jpg_200x200_9d9dabdb.jpg',
-          title: '颐和园',
-          desc: '中国现存最大的皇家园林'
-        },
-        {
-          id: '04',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/2005/39/3979f1867defec4ea3.water.jpg_200x200_325a015d.jpg',
-          title: '八达岭长城',
-          desc: '不到长城非好汉'
-        },
-        {
-          id: '05',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_200x200_444cc7e8.jpg',
-          title: '圆明园',
-          desc: '百年皇家的珍宝,民族耻辱的见证'
-        }
-      ]
-    }
+  props: {
+    recommendList: Array
   }
 }
 </script>

@@ -4,9 +4,9 @@
       <swiper-slide v-for="(page,index) in pages" :key="index">
         <div class="icon"  v-for="item in page" :key="item.id">
           <div class="img-icon">
-            <img class="img-icon-content" :src="item.iconUrl" alt="">
+            <img class="img-icon-content" :src="item.imgUrl" alt="">
           </div>
-          <p class="content">{{item.msg}}</p>
+          <p class="content">{{item.desc}}</p>
         </div>
       </swiper-slide>
     </swiper>
@@ -16,22 +16,13 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data () {
     return {
       swiperOptions: {
-        loop: true
-      },
-      iconList: [
-        {id: '0001', msg: '酒店', iconUrl: '//s.qunarzz.com/homenode/images/touchheader/hotel.png'},
-        {id: '0002', msg: '机票', iconUrl: '//s.qunarzz.com/homenode/images/touchheader/flight.png'},
-        {id: '0003', msg: '火车票', iconUrl: '//s.qunarzz.com/homenode/images/touchheader/train.png'},
-        {id: '0004', msg: '度假', iconUrl: '//s.qunarzz.com/homenode/images/touchheader/package.png'},
-        {id: '0005', msg: '景点门票', iconUrl: '//s.qunarzz.com/homenode/images/touchheader/piao.png'},
-        {id: '0006', msg: '海外酒店', iconUrl: 'https://picbed.qunarzz.com/f5e5770393d759578962e53ee67798c8.png'},
-        {id: '0007', msg: '低价机票', iconUrl: 'https://picbed.qunarzz.com/a36d2288f19e54562338f4d8ef986288.png'},
-        {id: '0008', msg: '汽车票船票', iconUrl: 'https://picbed.qunarzz.com/377db8cb2143aebf01869c9baad3d325.png'},
-        {id: '0009', msg: '民宿客栈', iconUrl: 'https://picbed.qunarzz.com/01d2f57f920666364197a850dab859a8.png'}
-      ]
+      }
     }
   },
   computed: {
