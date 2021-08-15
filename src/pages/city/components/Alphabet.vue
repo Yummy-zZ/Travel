@@ -51,7 +51,7 @@ export default {
             if (index >= 0 && index < this.letters.length) {
               this.$emit('toCity', this.letters[index])
             }
-          }, 16)
+          }, 8)
         }
       }
     },

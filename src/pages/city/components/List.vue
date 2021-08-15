@@ -75,7 +75,9 @@ export default {
   mounted () {
     // const vm = this
     // setTimeout(() => {
-    this.scroll = new BScroll(this.$refs.wrapper)
+    this.scroll = new BScroll(this.$refs.wrapper, {
+      click: true
+    })
     // }, 200)
   },
   updated () {
