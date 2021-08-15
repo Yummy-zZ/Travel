@@ -5,70 +5,31 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{ currentCity }}</div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">北京</div>
+          <div class="button-wrapper"
+               v-for="hotCity in hotCities"
+               :key="hotCity.id"
+          >
+            <div class="button">{{ hotCity.name }}</div>
           </div>
         </div>
       </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
+      <div class="area"
+           v-for="(value, keys) in cities"
+           :key="keys">
+        <div class="title border-topbottom">{{ keys }}</div>
         <div class="item-list">
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
-          <div class="item border-bottom">乌拉尔</div>
+          <div class="item border-bottom"
+               v-for="item in value"
+               :key="item.id"
+               >{{ item.name }}
+          </div>
         </div>
       </div>
     </div>
@@ -80,8 +41,19 @@ import BScroll from '@better-scroll/core' // 滚动优化
 
 export default {
   name: 'List',
+  props: {
+    currentCity: String,
+    hotCities: Array,
+    cities: Object
+  },
   mounted () {
+    // const vm = this
+    // setTimeout(() => {
     this.scroll = new BScroll(this.$refs.wrapper)
+    // }, 200)
+  },
+  updated () {
+    this.scroll.refresh()
   }
 }
 </script>
