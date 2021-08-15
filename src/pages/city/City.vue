@@ -5,9 +5,10 @@
     <List :currentCity="currentCity"
           :hotCities="hotCities"
           :cities="cities"
+          :word="word"
     >
     </List>
-    <Alphabet :cities="cities"></Alphabet>
+    <Alphabet :cities="cities" @toCity="getAlphabet"></Alphabet>
   </div>
 </template>
 
@@ -24,7 +25,8 @@ export default {
     return {
       currentCity: '',
       hotCities: [],
-      cities: {}
+      cities: {},
+      word: ''
     }
   },
   components: {
@@ -34,6 +36,9 @@ export default {
     Alphabet
   },
   methods: {
+    getAlphabet (word) {
+      this.word = word
+    },
     getInfoSucc (res) {
       res = res.data
       if (res.ret && res.data) {

@@ -22,7 +22,9 @@
       </div>
       <div class="area"
            v-for="(value, keys) in cities"
-           :key="keys">
+           :key="keys"
+           :ref="keys"
+      >
         <div class="title border-topbottom">{{ keys }}</div>
         <div class="item-list">
           <div class="item border-bottom"
@@ -44,7 +46,16 @@ export default {
   props: {
     currentCity: String,
     hotCities: Array,
-    cities: Object
+    cities: Object,
+    word: String
+  },
+  watch: {
+    word () {
+      if (this.word) {
+        let element = this.$refs[this.word][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
   },
   mounted () {
     // const vm = this
