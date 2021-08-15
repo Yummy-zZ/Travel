@@ -5,21 +5,24 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">{{ currentCity }}</div>
+            <div class="button">{{ this.currentCity }}</div>
           </div>
         </div>
       </div>
+
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
           <div class="button-wrapper"
                v-for="hotCity in hotCities"
                :key="hotCity.id"
+               @click="changeCity(hotCity.name)"
           >
             <div class="button">{{ hotCity.name }}</div>
           </div>
         </div>
       </div>
+
       <div class="area"
            v-for="(value, keys) in cities"
            :key="keys"
@@ -30,6 +33,7 @@
           <div class="item border-bottom"
                v-for="item in value"
                :key="item.id"
+               @click="changeCity(item.name)"
                >{{ item.name }}
           </div>
         </div>
@@ -39,12 +43,12 @@
 </template>
 
 <script>
-import BScroll from '@better-scroll/core' // 滚动优化
+import BScroll from '@better-scroll/core'// 滚动优化
+import {mapState} from 'vuex'
 
 export default {
   name: 'List',
   props: {
-    currentCity: String,
     hotCities: Array,
     cities: Object,
     word: String
@@ -56,6 +60,17 @@ export default {
         this.scroll.scrollToElement(element)
       }
     }
+  },
+  methods: {
+    changeCity (city) {
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
+    }
+  },
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
   },
   mounted () {
     // const vm = this

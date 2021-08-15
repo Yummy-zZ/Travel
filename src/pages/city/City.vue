@@ -2,8 +2,7 @@
   <div>
     <city-header></city-header>
     <Search :cities="cities"></Search>
-    <List :currentCity="currentCity"
-          :hotCities="hotCities"
+    <List :hotCities="hotCities"
           :cities="cities"
           :word="word"
     >
@@ -23,7 +22,6 @@ export default {
   name: 'City',
   data () {
     return {
-      currentCity: '',
       hotCities: [],
       cities: {},
       word: ''
@@ -43,7 +41,6 @@ export default {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
-        this.currentCity = data.city
         this.hotCities = data.hotCities
         this.cities = data.cities
       }

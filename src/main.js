@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import fastClick from 'fastclick'// 解决移动端300毫秒点击延迟问题，紧接着我安装了stylus@0.54.5和stylus-loader@3.0.1
 import VueAwesomeSwiper from 'vue-awesome-swiper'// 轮播图的引入
 import 'styles/reset.css'// 解决移动端布局问题,.01rem相当于1px
@@ -18,6 +19,7 @@ Vue.use(VueAwesomeSwiper)// 轮播图的挂载使用
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

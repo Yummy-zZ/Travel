@@ -16,6 +16,7 @@
           <li class="search-item border-bottom"
               v-for="item in list"
               :key="item.id"
+              @click="changeCity(item.name)"
           >{{item.name}}</li>
           <li class="search-item border-bottom"
               v-show="hasNoData"
@@ -40,6 +41,12 @@ export default {
     return {
       inputCity: '',
       list: []
+    }
+  },
+  methods: {
+    changeCity (city) {
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
     }
   },
   computed: {
