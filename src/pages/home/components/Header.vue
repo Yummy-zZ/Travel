@@ -7,10 +7,12 @@
         <span class="iconfont">&#xe67d;</span>
         输入城市/景点/游玩主题
     </div>
-    <div class="right">
-      {{city}}
-      <span class="iconfont icon-arrow">&#xe688;</span>
-    </div>
+    <router-link to="/city">
+      <div class="right">
+        {{city}}
+        <span class="iconfont icon-arrow">&#xe688;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -25,7 +27,7 @@ export default {
 <style lang="stylus" scoped>
   @import "~styles/varibles"
   .header
-    line-height 0.86rem
+    line-height $headerHeight
     display flex
     background-color $bgcolor
     color #fff
@@ -33,6 +35,8 @@ export default {
       width 0.64rem
       float left
       text-align center
+      .iconfont
+        font-size .4rem
     .center
       flex: 1
       height .64rem
@@ -47,6 +51,7 @@ export default {
       width 1.24rem
       float right
       text-align center
+      color #fff
       .icon-arrow
         font-size 60%
 </style>
