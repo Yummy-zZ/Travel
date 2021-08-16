@@ -48,6 +48,9 @@ export default {
   },
   activated () {
     window.addEventListener('scroll', this.handleShowAbs)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleShowAbs)
   }
 }
 </script>
