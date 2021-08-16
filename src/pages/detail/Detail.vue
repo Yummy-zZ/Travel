@@ -54,14 +54,6 @@ export default {
   },
   mounted () {
     this.getDataInfo()
-  },
-  activated () {
-    axios.get('/api/detail.json', {
-      params: {
-        id: this.$route.params.id
-      }
-    })
-      .then(this.handleDataSucc)
   }
 }
 </script>

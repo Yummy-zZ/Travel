@@ -34,7 +34,8 @@ export default {
         if (timer) {
           clearTimeout(timer)
         }
-        let top = document.documentElement.scrollTop
+        let top = document.documentElement.scrollTop ||
+          document.body.scrollTop || window.pageYOffset
         if (top > 55) {
           let opacity = top / 140
           opacity = opacity > 1 ? 1 : opacity
@@ -46,10 +47,10 @@ export default {
       }, 6)
     }
   },
-  activated () {
+  mounted () {
     window.addEventListener('scroll', this.handleShowAbs)
   },
-  deactivated () {
+  destroyed () {
     window.removeEventListener('scroll', this.handleShowAbs)
   }
 }
