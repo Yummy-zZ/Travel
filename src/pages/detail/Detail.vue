@@ -1,9 +1,12 @@
 <template>
   <div>
     <Header></Header>
-    <Banner></Banner>
+    <Banner :sightName="sightName"
+            :bannerImg="bannerImg"
+            :gallaryImgs="gallaryImgs"
+    ></Banner>
     <div class="content">
-      <List :list="list"></List>
+      <List :categoryList="categoryList"></List>
     </div>
   </div>
 </template>
@@ -12,27 +15,53 @@
 import Banner from './components/Banner'
 import Header from './components/Header'
 import List from './components/List'
+import axios from 'axios'
 
 export default {
   name: 'Detail',
   data () {
     return {
-      list: [
-        { title: '成人票',
-          cost: '998',
-          children: [{ title: '有导游参观',
-            cost: '1998',
-            children: [{title: '有人工解说', cost: '19998'}]
-          }, {title: '无导游参观', cost: '996'}] },
-        { title: '学生票' }, { title: '儿童票' },
-        { title: '特惠票' }
-      ]
+      sightName: '',
+      bannerImg: '',
+      gallaryImgs: [],
+      categoryList: []
     }
   },
   components: {
     Header,
     Banner,
     List
+  },
+  methods: {
+    handleDataSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        this.sightName = data.sightName
+        this.bannerImg = data.bannerImg
+        this.gallaryImgs = data.gallaryImgs
+        this.categoryList = data.categoryList
+      }
+    },
+    getDataInfo () {
+      axios.get('/api/detail.json', {
+        params: {
+          id: this.$route.params.id
+        }
+      })
+        .then(this.handleDataSucc)
+    }
+  },
+  mounted () {
+    this.getDataInfo()
+  },
+  activated () {
+    axios.get('/api/detail.json', {
+      params: {
+        id: this.$route.params.id
+      }
+    })
+      .then(this.handleDataSucc)
   }
 }
 </script>

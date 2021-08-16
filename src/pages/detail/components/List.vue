@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="item" v-for="(item, index) in list" :key="index">
+    <div class="item" v-for="(item, index) in categoryList" :key="index">
       <div class="item-title border-bottom">
         <span class="iconfont item-title-icon">&#xe602;</span>
         {{item.title}}
-        <span>¥:{{item.cost}}</span>
+        <span>￥:{{item.cost}}</span>
       </div>
 
       <div v-if="item.children" class="item-children">
-        <List :list="item.children"></List>
+        <List :category-list="item.children"></List>
       </div>
     </div>
   </div>
@@ -18,7 +18,7 @@
 export default {
   name: 'List',
   props: {
-    list: Array
+    categoryList: Array
   }
 }
 </script>

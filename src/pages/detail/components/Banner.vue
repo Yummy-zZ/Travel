@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="banner" @click="showGallary">
-      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg" alt="故宫">
+      <img class="banner-img" :src="bannerImg" alt="故宫">
       <div class="banner-info">
-        <div class="img-desc">故宫(AAAAA景区)</div>
+        <div class="img-desc">{{ sightName }}</div>
         <div class="img-sum">
           <span class="iconfont">&#xe604;</span>
           5
@@ -24,10 +24,13 @@
 import Gallary from 'common/gallary/Gallary'
 export default {
   name: 'banner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data () {
     return {
-      gallaryImgs: ['http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_r_800x800_6edd8174.jpg',
-        'http://img1.qunarzz.com/sight/p0/1909/4e/4e1afc2e1133ade7a3.img.jpg_350x240_2646c984.jpg'],
       isShowGallary: false
     }
   },
