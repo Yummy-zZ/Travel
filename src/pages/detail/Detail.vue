@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="detail" @click="showGallary">
-      <img class="detail-img" src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg" alt="故宫">
-      <div class="detail-info">
+    <div class="banner" @click="showGallary">
+      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg" alt="故宫">
+      <div class="banner-info">
         <div class="img-desc">故宫(AAAAA景区)</div>
         <div class="img-sum">
           <span class="iconfont">&#xe604;</span>
@@ -46,13 +46,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .detail
+  .banner
     overflow hidden
     height 0
     padding-bottom 55%
-    .detail-img
+    .banner-img
       width 100%
-    .detail-info
+    .banner-info
       display flex
       position relative
       bottom 0
