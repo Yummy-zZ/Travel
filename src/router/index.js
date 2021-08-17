@@ -11,7 +11,7 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home // 异步组件加载：component: () => import('../pages/detail/Detail')
     },
     {
       path: '/city',

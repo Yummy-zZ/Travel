@@ -12,6 +12,7 @@ import 'styles/reset.css'// 解决移动端布局问题,.02rem相当于1px
 import 'styles/border.css'// 解决移动端1像素边框问题
 import 'styles/iconfont.css'// 矢量图标引入
 import 'swiper/swiper-bundle.css'// 轮播图的css引入
+import 'babel-polyfill' // 兼容老安卓手机，添加ES6新特性
 
 Vue.config.productionTip = false
 // fastClick.attach(document.body)
