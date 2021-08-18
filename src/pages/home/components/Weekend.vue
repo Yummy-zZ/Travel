@@ -21,10 +21,9 @@ export default {
   props: {
     weekendList: Array
   },
-  data () {
-    return {
-      title: '周末去哪儿'
-    }
+  setup () {
+    const title = '周末去哪儿'
+    return { title }
   }
 }
 </script>

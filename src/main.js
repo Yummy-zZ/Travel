@@ -1,6 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
+import Vue, { createApp } from 'vue';
 import App from './App'
 import router from './router'
 import store from './store'
@@ -14,13 +14,8 @@ import 'styles/iconfont.css'// 矢量图标引入
 import 'swiper/swiper-bundle.css'// 轮播图的css引入
 import 'babel-polyfill' // 兼容老安卓手机，添加ES6新特性
 
-Vue.config.productionTip = false
 // fastClick.attach(document.body)
-Vue.use(VueAwesomeSwiper)// 轮播图的挂载使用
+// 轮播图的挂载使用
 
 /* eslint-disable no-new */
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+createApp(App).use(router).use(store).use(VueAwesomeSwiper).mount('#app')

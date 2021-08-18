@@ -10,26 +10,25 @@
 </template>
 
 <script>
+import {computed} from "vue";
+
 export default {
   name: 'HomeSwiper',
   props: {
     swiperList: Array
   },
-  data () {
-    return {
-      swiperOptions: {
-        pagination: '.swiper-pagination',
-        loop: true,
-        autoplay: 2500,
-        speed: 1200,
-        autoplayDisableOnInteraction: false
-      }
+  setup (props) {
+    const swiperOptions = {
+      pagination: '.swiper-pagination',
+      loop: true,
+      autoplay: 2500,
+      speed: 1200,
+      autoplayDisableOnInteraction: false
     }
-  },
-  computed: {
-    showSwiper () {
-      return this.swiperList.length
-    }
+    const showSwiper = computed(() => {
+      return props.swiperList.length
+    })
+    return { swiperOptions, showSwiper }
   }
 }
 </script>

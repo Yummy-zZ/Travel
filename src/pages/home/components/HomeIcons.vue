@@ -14,21 +14,20 @@
 </template>
 
 <script>
+import { reactive, computed } from 'vue'
+
 export default {
   name: 'HomeIcons',
   props: {
     iconList: Array
   },
-  data () {
-    return {
-      swiperOptions: {
-      }
-    }
-  },
-  computed: {
-    pages () {
+  setup(props) {
+    const swiperOptions = {
+      autoplay: false
+    }// 轮播图
+    const pages = computed(() => {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      props.iconList.forEach((item, index) => {
         let page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
@@ -36,7 +35,8 @@ export default {
         pages[page].push(item)
       })
       return pages
-    }
+    })// 页面图标分页
+    return { swiperOptions, pages }
   }
 }
 </script>

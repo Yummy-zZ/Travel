@@ -56,7 +56,7 @@ export default {
   watch: {
     word () {
       if (this.word) {
-        let element = this.$refs[this.word][0]
+        let element = this.$refs[this.word]
         this.scroll.scrollToElement(element)
       }
     }

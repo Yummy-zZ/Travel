@@ -29,7 +29,7 @@ export default {
     cities: Object
   },
   updated () {
-    this.startY = this.$refs['A'][0].offsetTop
+    this.startY = this.$refs['A'].offsetTop
   },
   methods: {
     getWorlds (event) {
@@ -44,6 +44,7 @@ export default {
         // const startY = this.$refs['A'][0].offsetTop
         if (timer) {
           clearTimeout(timer)
+          timer = null
         } else {
           setTimeout(() => {
             const touchY = event.touches[0].clientY - 79
